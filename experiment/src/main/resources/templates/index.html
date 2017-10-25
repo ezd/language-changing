@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="head :: head-fragment"/>
+<body>
+<span th:text="#{lang.change}"></span>
+<select id="locals">
+<option th:text="#{lang.sellect}" value=""></option>
+<option th:text="#{lang.eng}" value="en"></option>
+<option th:text="#{lang.amh}" value="am"></option>
+<option th:text="#{lang.fra}" value="fr"></option>
+</select>
+<p th:text="#{index.body.main.content}"></p>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#locals').change(
+	function(){
+		var selectedOption=$('#locals').val();
+		alert(selectedOption);
+		if(selectedOption!=''){
+			window.location.replace('/?lang='+selectedOption);
+		}
+	}		
+	);
+});
+</script>
+</html>
